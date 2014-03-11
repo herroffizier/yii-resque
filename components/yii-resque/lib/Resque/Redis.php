@@ -1,5 +1,5 @@
 <?php
-if (class_exists('Redis', false))
+/*if (class_exists('Redis', false))
 {
 	class RedisApi extends Redis
 	{
@@ -47,7 +47,7 @@ if (class_exists('Redis', false))
 	}
 }
 else
-{
+{*/
 	/**
 	 * Wrap Credis to add namespace support and various helper methods.
 	 *
@@ -57,6 +57,7 @@ else
 	 */
 	class RedisApi
 	{
+
 	    /**
 	     * Redis namespace
 	     * @var string
@@ -161,7 +162,7 @@ else
 						$port = $parts[1];
 					}
 					$host = $parts[0];
-				}else if (strpos($server, 'redis://') !== false){
+				} else if (strpos($server, 'redis://') !== false){
 					// Redis format is:
 					// redis://[user]:[password]@[host]:[port]
 					list($userpwd,$hostport) = explode('@', $server);
@@ -170,7 +171,10 @@ else
 					list($user, $password) = explode(':', $userpwd);
 				}
 				
-				$this->driver = new Credis_Client($host, $port);
+				$this->driver = new Predis\Client (array(
+					'host' => $host, 
+					'port' => $port, 
+				));
 				if (isset($password)){
 					$this->driver->auth($password);
 				}
@@ -216,6 +220,6 @@ else
 	        return $string;
 	    }
 	}
-}
+//}
 
 class Resque_Redis extends RedisApi {}

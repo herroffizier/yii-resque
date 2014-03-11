@@ -121,6 +121,7 @@ class Resque
     public static function pop($queue)
     {
         $item = self::redis()->lpop('queue:' . $queue);
+
         if(!$item) {
             return;
         }

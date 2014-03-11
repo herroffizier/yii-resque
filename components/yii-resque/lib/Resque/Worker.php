@@ -26,7 +26,7 @@ class Resque_Worker
     /**
      * @var int Current log level of this worker.
      */
-    public $logLevel = self::LOG_NONE;
+    public $logLevel = self::LOG_VERBOSE;
 
     /**
      * @var array Array of all associated queues for this worker.
@@ -174,6 +174,7 @@ class Resque_Worker
             $job = false;
             if (!$this->paused) {
                 $job = $this->reserve();
+                //if($this->queues[0] === 'mail') echo 'Job:('.print_r($job,true).')';
             }
 
             if (!$job) {
@@ -273,6 +274,7 @@ class Resque_Worker
             }
         }
 
+        print_r($queues,true);
         return false;
     }
 
