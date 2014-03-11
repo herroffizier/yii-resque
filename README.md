@@ -1,3 +1,5 @@
+**WARNING!** This fork is incompatible with original extension. Support for phpredis and Credis **REMOVED**.
+
 # Yii Resque
 
 Yii resque is a component for Yii to queue your background jobs, this component based on [php-resque](https://github.com/chrisboulton/php-resque) and [php-resque-scheduler](https://github.com/chrisboulton/php-resque-scheduler) with some enhancement for support phpredis, I'm also added log handler using [Monolog](https://github.com/Seldaek/monolog), already tested with [ResqueBoard](https://github.com/kamisama/ResqueBoard).
@@ -6,7 +8,7 @@ Yii resque is a component for Yii to queue your background jobs, this component 
 
 - php pnctl extension.
 - [Redis.io](http://redis.io)
-- [phpredis](https://github.com/nicolasff/phpredis) extension for better performance, otherwise it'll automatically using [Credis](https://github.com/colinmollenhour/credis) as fallback.
+- [Predis](https://github.com/nrk/predis)
 - Yii Framework >1.1.x
 
 ## Configuration
@@ -173,4 +175,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - chrisschrijver
 - summic
 - anasAsh
+- herroffizier
+- subtronic
 - You
